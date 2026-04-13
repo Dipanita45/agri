@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
-import Advisor from "./Advisor";
-import How from "./How";
-import GoogleTranslate from "./GoogleTranslate";
+import React, { useState, useRef, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import Advisor from './components/Advisor';
+import How from './components/How';
+import GoogleTranslate from './components/GoogleTranslate';
 import {
   FaHome,
   FaComments,
@@ -13,16 +13,16 @@ import {
   FaTimes,
   FaVolumeMute,
   FaVolumeUp,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 function App() {
   const [showAlert, setShowAlert] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState(localStorage.getItem("farmerName") || "");
-  const [inputName, setInputName] = useState("");
+  const [name, setName] = useState(localStorage.getItem('farmerName') || '');
+  const [inputName, setInputName] = useState('');
   const [preferredLang, setPreferredLang] = useState(
-    localStorage.getItem("preferredLanguage") || "en"
+    localStorage.getItem('preferredLanguage') || 'en'
   );
   const videoRef = useRef(null);
 
@@ -30,10 +30,10 @@ function App() {
   useEffect(() => {
     if (preferredLang) {
       const interval = setInterval(() => {
-        const select = document.querySelector(".goog-te-combo");
+        const select = document.querySelector('.goog-te-combo');
         if (select) {
           select.value = preferredLang;
-          select.dispatchEvent(new Event("change"));
+          select.dispatchEvent(new Event('change'));
           clearInterval(interval);
         }
       }, 500);
@@ -50,28 +50,27 @@ function App() {
   const handleLogin = (e) => {
     e.preventDefault();
     if (inputName.trim() && preferredLang) {
-      localStorage.setItem("farmerName", inputName);
-      localStorage.setItem("preferredLanguage", preferredLang);
+      localStorage.setItem('farmerName', inputName);
+      localStorage.setItem('preferredLanguage', preferredLang);
       setName(inputName);
-      setInputName("");
-      window.location.href = "/";
+      setInputName('');
+      window.location.href = '/';
     }
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("farmerName");
-    localStorage.removeItem("preferredLanguage");
-    setName("");
-    setPreferredLang("en");
-    window.location.href = "/";
+    localStorage.removeItem('farmerName');
+    localStorage.removeItem('preferredLanguage');
+    setName('');
+    setPreferredLang('en');
+    window.location.href = '/';
   };
 
   return (
     <Router>
       <div className="app">
         {/* Google Translate Widget */}
-       <GoogleTranslate lang={preferredLang} />
-
+        <GoogleTranslate lang={preferredLang} />
 
         {/* Navbar */}
         <nav className="navbar">
@@ -82,7 +81,7 @@ function App() {
             </Link>
           </div>
 
-          <ul className={`nav-center ${isOpen ? "active" : ""}`}>
+          <ul className={`nav-center ${isOpen ? 'active' : ''}`}>
             <li>
               <Link to="/" onClick={() => setIsOpen(false)}>
                 <FaHome className="icon" /> Home
@@ -108,12 +107,12 @@ function App() {
               onChange={(e) => {
                 const lang = e.target.value;
                 setPreferredLang(lang);
-                localStorage.setItem("preferredLanguage", lang);
+                localStorage.setItem('preferredLanguage', lang);
 
-                const select = document.querySelector(".goog-te-combo");
+                const select = document.querySelector('.goog-te-combo');
                 if (select) {
                   select.value = lang;
-                  select.dispatchEvent(new Event("change"));
+                  select.dispatchEvent(new Event('change'));
                 }
               }}
             >
@@ -139,8 +138,8 @@ function App() {
                   </button>
                 </>
               ) : (
-                <Link to="/login" onClick={() => setIsOpen(false)}>
-                  Login
+                <Link to="/preferences" onClick={() => setIsOpen(false)}>
+                  Get Started
                 </Link>
               )}
             </div>
@@ -167,14 +166,7 @@ function App() {
             path="/"
             element={
               <header className="hero">
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="background-video"
-                >
+                <video ref={videoRef} autoPlay muted loop playsInline className="background-video">
                   <source src="agri.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -186,7 +178,6 @@ function App() {
                 <div className="overlay">
                   <h1 className="fade-in">AI-Powered Agricultural Advisor</h1>
                   <p className="sub">Empowering Farmers with AI, Anywhere, Anytime</p>
-                  
                 </div>
               </header>
             }
@@ -194,14 +185,17 @@ function App() {
           <Route path="/advisor" element={<Advisor />} />
           <Route path="/how-it-works" element={<How />} />
 
-          {/* Login Page */}
+          {/* Get Started - Preferences Page */}
           <Route
-            path="/login"
+            path="/preferences"
             element={
               <div className="login-page">
                 <div className="login-card">
-                  <h2>👨‍🌾 Farmer Login</h2>
-                  <p>Welcome! Please provide your details to continue.</p>
+                  <h2>👨‍🌾 Get Started</h2>
+                  <p>
+                    Set your preferences to personalize your experience. This is optional and saves
+                    to your device.
+                  </p>
                   <form onSubmit={handleLogin}>
                     <input
                       type="text"
@@ -227,11 +221,9 @@ function App() {
                       <option value="ml">🇮🇳 മലയാളം (Malayalam)</option>
                       <option value="or">🇮🇳 ଓଡ଼ିଆ (Odia)</option>
                     </select>
-                    <button type="submit">Login</button>
+                    <button type="submit">Continue</button>
                   </form>
-                  <p className="login-note">
-                    Your preferences will be saved for future visits.
-                  </p>
+                  <p className="login-note">Skip anytime - your preferences are optional.</p>
                 </div>
               </div>
             }

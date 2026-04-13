@@ -7,10 +7,24 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependencies
+node_modules/
+dist/
+dist-ssr/
 *.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+.env.*.local
 
 # Editor directories and files
 .vscode/*
@@ -23,4 +37,14 @@ dist-ssr
 *.sln
 *.sw?
 
+# Build
 .vercel
+*.egg
+
+# Media
+*.mp4
+*.webm
+public/agri.mp4
+
+# Testing
+coverage/
