@@ -1,0 +1,213 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  FaSeedling,
+  FaSun,
+  FaBrain,
+  FaHandHoldingWater,
+  FaChartLine,
+  FaPhoneAlt,
+  FaQuoteLeft,
+} from "react-icons/fa";
+import "./Home.css";
+
+export default function Home() {
+  const features = [
+    {
+      icon: <FaBrain />,
+      title: "AI-Powered Predictions",
+      desc: "Smart crop yield predictions using advanced machine learning",
+    },
+    {
+      icon: <FaSun />,
+      title: "Weather Insights",
+      desc: "Real-time weather forecasts tailored for farming decisions",
+    },
+    {
+      icon: <FaHandHoldingWater />,
+      title: "Irrigation Advice",
+      desc: "Smart irrigation recommendations to optimize water usage",
+    },
+    {
+      icon: <FaChartLine />,
+      title: "Yield Optimization",
+      desc: "Maximize your harvest with data-driven farming strategies",
+    },
+  ];
+
+  const stats = [
+    { number: "50K+", label: "Farmers Helped" },
+    { number: "120+", label: "Crop Types" },
+    { number: "98%", label: "Accuracy" },
+    { number: "24/7", label: "Support" },
+  ];
+
+  const testimonials = [
+    {
+      name: "Ramesh Kumar",
+      location: "Maharashtra",
+      text: "Fasal Saathi helped me increase my rice yield by 30% this season!",
+    },
+    {
+      name: "Lakshmi Devi",
+      location: "Tamil Nadu",
+      text: "The weather predictions are accurate. I plan my irrigation accordingly.",
+    },
+    {
+      name: "Suresh Patel",
+      location: "Gujarat",
+      text: "Best AI farming assistant. Simple to use even for elderly farmers.",
+    },
+  ];
+
+  return (
+    <div className="home">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-bg">
+          <div className="hero-pattern"></div>
+        </div>
+        <div className="hero-content">
+          <div className="hero-badge">
+            <FaSeedling /> AI-Powered Farming Assistant
+          </div>
+          <h1 className="hero-title">
+            Smart Farming with <span className="highlight">AI</span>
+          </h1>
+          <p className="hero-subtitle">
+            Get AI-driven crop recommendations, weather insights, and yield predictions
+            to maximize your agricultural productivity.
+          </p>
+          <div className="hero-buttons">
+            <Link to="/advisor" className="btn-primary">
+              Get Started
+            </Link>
+            <Link to="/how-it-works" className="btn-secondary">
+              Learn More
+            </Link>
+          </div>
+          <div className="hero-stats">
+            {stats.map((stat, index) => (
+              <div key={index} className="stat-item">
+                <span className="stat-number">{stat.number}</span>
+                <span className="stat-label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="floating-card card-1">
+            <FaSun className="card-icon" />
+            <span>28°C - Sunny</span>
+          </div>
+          <div className="floating-card card-2">
+            <FaSeedling className="card-icon" />
+            <span>Yield: +30%</span>
+          </div>
+          <div className="floating-card card-3">
+            <FaHandHoldingWater className="card-icon" />
+            <span>Optimal Irrigation</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="features-section">
+        <div className="section-header">
+          <h2>Powerful Features for Modern Farming</h2>
+          <p>Everything you need to succeed in agriculture</p>
+        </div>
+        <div className="features-grid">
+          {features.map((feature, index) => (
+            <div key={index} className="feature-card">
+              <div className="feature-icon">{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="how-section">
+        <div className="section-header">
+          <h2>How It Works</h2>
+          <p>Three simple steps to smarter farming</p>
+        </div>
+        <div className="steps-container">
+          <div className="step">
+            <div className="step-number">1</div>
+            <h3>Enter Farm Details</h3>
+            <p>Input your crop type, area, and farming conditions</p>
+          </div>
+          <div className="step-connector"></div>
+          <div className="step">
+            <div className="step-number">2</div>
+            <h3>AI Analysis</h3>
+            <p>Our ML models analyze your data instantly</p>
+          </div>
+          <div className="step-connector"></div>
+          <div className="step">
+            <div className="step-number">3</div>
+            <h3>Get Recommendations</h3>
+            <p>Receive personalized farming advice</p>
+          </div>
+        </div>
+        <Link to="/advisor" className="btn-primary">
+          Try It Now
+        </Link>
+      </section>
+
+      {/* Testimonials */}
+      <section className="testimonials-section">
+        <div className="section-header">
+          <h2>What Farmers Say</h2>
+          <p>Real experiences from real farmers</p>
+        </div>
+        <div className="testimonials-grid">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="testimonial-card">
+              <FaQuoteLeft className="quote-icon" />
+              <p className="testimonial-text">{testimonial.text}</p>
+              <div className="testimonial-author">
+                <div className="author-avatar">
+                  {testimonial.name[0]}
+                </div>
+                <div className="author-info">
+                  <span className="author-name">{testimonial.name}</span>
+                  <span className="author-location">{testimonial.location}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <h2>Ready to Transform Your Farm?</h2>
+        <p>Join thousands of farmers already benefiting from AI-powered agriculture</p>
+        <Link to="/advisor" className="btn-primary">
+          Start Free Consultation
+        </Link>
+      </section>
+
+      {/* Footer */}
+      <footer className="home-footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <FaSeedling className="footer-logo" />
+            <span>Fasal Saathi</span>
+          </div>
+          <p>AI-Powered Agricultural Advisor for Indian Farmers</p>
+          <div className="footer-contact">
+            <FaPhoneAlt /> Need help? Call us: +91 98765 43210
+          </div>
+          <p className="footer-copyright">
+            © 2026 Fasal Saathi. All rights reserved. MIT Licensed.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
