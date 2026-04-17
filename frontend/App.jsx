@@ -72,6 +72,11 @@ function App() {
                 <FaInfoCircle className="icon" /> How It Works
               </Link>
             </li>
+            <li>
+      <Link to="/resources" onClick={() => setIsOpen(false)}>
+                Resources
+      </Link>
+      </li>
           </ul>
 
           <div className="nav-right">
