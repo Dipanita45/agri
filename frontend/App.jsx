@@ -5,6 +5,7 @@ import Advisor from "./Advisor";
 import How from "./How";
 import Home from "./Home";
 import Resources from "./Resources";
+import CropGuide from "./CropGuide";
 import {
   FaHome,
   FaComments,
@@ -70,6 +71,11 @@ function App() {
             <li>
               <Link to="/how-it-works" onClick={() => setIsOpen(false)}>
                 <FaInfoCircle className="icon" /> How It Works
+              </Link>
+            </li>
+            <li>
+              <Link to="/crop-guide" onClick={() => setIsOpen(false)}>
+                <FaLeaf className="icon" /> Crop Guide
               </Link>
             </li>
           </ul>
