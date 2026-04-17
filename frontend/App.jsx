@@ -4,6 +4,7 @@ import "./App.css";
 import Advisor from "./Advisor";
 import How from "./How";
 import Home from "./Home";
+import Resources from "./Resources";
 import {
   FaHome,
   FaComments,
