@@ -56,7 +56,8 @@ export default function How() {
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`step-card fade-up ${step.color}`}
+            className="step-card fade-up"
+            data-step={index + 1}
           >
             <div className="step-number">0{index + 1}</div>
 
