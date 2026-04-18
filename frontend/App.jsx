@@ -6,6 +6,8 @@ import How from "./How";
 import Home from "./Home";
 import Resources from "./Resources";
 import CropGuide from "./CropGuide";
+import { ToastContainer } from "react-toastify";
+import useNotifications from "./Notifications";
 import {
   FaHome,
   FaComments,
@@ -19,6 +21,7 @@ function App() {
   const [showAlert, setShowAlert] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [sunlight, setSunlight] = useState(false); 
+  useNotifications();
 
   const [name, setName] = useState(localStorage.getItem("farmerName") || "");
   const [inputName, setInputName] = useState("");
@@ -181,6 +184,8 @@ function App() {
           />
         </Routes>
       </div>
+
+       <ToastContainer />
     </Router>
   );
 }
