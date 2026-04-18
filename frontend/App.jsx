@@ -208,6 +208,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/advisor" element={<Advisor />} />
           <Route path="/how-it-works" element={<How />} />
+          <Route path="/crop-guide" element={<CropGuide />} />
+          <Route path="/resources" element={<Resources />} />
 
           <Route
             path="/login"
