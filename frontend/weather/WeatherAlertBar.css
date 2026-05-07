@@ -196,3 +196,206 @@
   border: 2px solid #000000;
   box-shadow: none;
 }
+
+/* =========================
+   WEATHER ALERT BAR
+========================= */
+
+.weather-alert-bar {
+  width: 100%;
+  position: relative;
+  z-index: 40;
+
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+
+  animation: slideDown 0.35s ease;
+}
+
+/* Severity Colors */
+.weather-alert-bar.severity-danger {
+  background: linear-gradient(
+    90deg,
+    rgba(220, 38, 38, 0.92),
+    rgba(127, 29, 29, 0.92)
+  );
+}
+
+.weather-alert-bar.severity-warning {
+  background: linear-gradient(
+    90deg,
+    rgba(245, 158, 11, 0.92),
+    rgba(180, 83, 9, 0.92)
+  );
+}
+
+.weather-alert-bar.severity-info {
+  background: linear-gradient(
+    90deg,
+    rgba(14, 116, 144, 0.92),
+    rgba(3, 105, 161, 0.92)
+  );
+}
+
+/* Main Layout */
+.weather-alert-bar__content {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Left Side */
+.weather-alert-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+
+  flex: 1;
+  min-width: 0;
+}
+
+/* Icon */
+.weather-alert-bar__icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.15);
+
+  font-size: 1rem;
+
+  flex-shrink: 0;
+}
+
+/* Text */
+.weather-alert-bar__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  min-width: 0;
+}
+
+.weather-alert-bar__text strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  color: #fff;
+}
+
+.weather-alert-bar__text span {
+  font-size: 0.86rem;
+  line-height: 1.45;
+
+  color: rgba(255,255,255,0.88);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Temperature Display */
+.weather-alert-bar__temp-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  min-width: 90px;
+}
+
+.weather-alert-bar__temp-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+
+  color: #fff;
+}
+
+.weather-alert-bar__temp-summary {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.82);
+}
+
+/* Dismiss Button */
+.weather-alert-bar__dismiss {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.25s ease;
+
+  flex-shrink: 0;
+}
+
+.weather-alert-bar__dismiss:hover {
+  background: rgba(255,255,255,0.24);
+  transform: rotate(90deg);
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .weather-alert-bar {
+    padding: 0.8rem;
+  }
+
+  .weather-alert-bar__content {
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .weather-alert-bar__temp-display {
+    display: none;
+  }
+
+  .weather-alert-bar__text span {
+    white-space: normal;
+  }
+
+  .weather-alert-bar__icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

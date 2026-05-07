@@ -666,3 +666,124 @@
     flex-direction: column;
   }
 }
+
+
+/* =========================
+   EMBEDDED WEATHER CARD
+========================= */
+
+.weather-card--embedded {
+  padding: 1.2rem;
+  border-radius: 24px;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: hidden;
+}
+
+/* Remove huge empty spacing */
+.weather-card--embedded .weather-summary {
+  margin-bottom: 1rem;
+}
+
+.weather-card--embedded .forecast-strip {
+  margin-top: 1rem;
+  gap: 0.8rem;
+}
+
+/* Hide large sections completely */
+.weather-card--embedded .weather-panels,
+.weather-card--embedded .weather-card__controls,
+.weather-card--embedded .weather-empty-state {
+  display: none;
+}
+
+/* Compact header */
+.weather-card__compact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Forecast cards */
+.weather-card--embedded .forecast-day {
+  min-width: 80px;
+  padding: 0.7rem;
+}
+
+/* Remove giant margins */
+.weather-card--embedded * {
+  max-height: fit-content;
+}
+
+/* =========================
+   FEATURE SECTION FIX
+========================= */
+
+.features-section {
+  padding: 4rem 5%;
+  min-height: auto;
+}
+
+/* Remove giant gap */
+.features-grid {
+  margin-top: 2rem;
+  align-items: stretch;
+}
+
+/* Recommendation section */
+.recommendation-box {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  min-height: auto;
+}
+
+/* Better heading spacing */
+.features-header {
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   WEATHER SUMMARY FIX
+========================= */
+
+.weather-summary {
+  padding: 1rem;
+}
+
+.weather-summary__top {
+  margin-bottom: 1rem;
+}
+
+.weather-metrics {
+  margin-top: 1rem;
+  gap: 0.8rem;
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+  .weather-card--embedded {
+    padding: 1rem;
+  }
+
+  .forecast-strip {
+    overflow-x: auto;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.features-section
+.weather-card
+.weather-summary
+.forecast-strip
+{
+display: flex;
+align-items: center;
+align-items: flex-start;}
