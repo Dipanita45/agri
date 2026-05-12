@@ -460,26 +460,83 @@ export default function Home({ user }) {
       </section>
 
       <section className="testimonials-section">
-        <div className="section-header">
-          <h2>What Farmers Say</h2>
-          <p>Real experiences from real farmers</p>
+  <div className="testimonials-bg"></div>
+
+  <div className="section-header">
+    <div className="section-badge">
+      <FaUsers />
+      Trusted by Farmers
+    </div>
+
+    <h2>What Farmers Say</h2>
+
+    <p>
+      Thousands of farmers across India are improving productivity with
+      AI-powered insights from <span className="notranslate">Fasal Saathi</span>.
+    </p>
+  </div>
+
+  {/* TRUST STATS */}
+  <div className="testimonial-trust-stats">
+    <div className="trust-item">
+      <h3>50K+</h3>
+      <span>Farmers Supported</span>
+    </div>
+
+    <div className="trust-item">
+      <h3>98%</h3>
+      <span>Satisfaction Rate</span>
+    </div>
+
+    <div className="trust-item">
+      <h3>24/7</h3>
+      <span>AI Assistance</span>
+    </div>
+  </div>
+
+  <div className="testimonials-grid">
+    {testimonials.map((testimonial, index) => (
+      <div key={index} className="testimonial-card">
+        
+        <div className="testimonial-top">
+          <FaQuoteLeft className="quote-icon" />
+
+          <div className="testimonial-rating">
+            ⭐ ⭐ ⭐ ⭐ ⭐
+          </div>
         </div>
-        <div className="testimonials-grid">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
-              <FaQuoteLeft className="quote-icon" />
-              <p className="testimonial-text">{testimonial.text}</p>
-              <div className="testimonial-author">
-                <div className="author-avatar">{testimonial.name[0]}</div>
-                <div className="author-info">
-                  <span className="author-name"><span className="notranslate">{testimonial.name}</span></span>
-                  <span className="author-location">{testimonial.location}</span>
-                </div>
-              </div>
-            </div>
-          ))}
+
+        <p className="testimonial-text">
+          {testimonial.text}
+        </p>
+
+        <div className="testimonial-tags">
+          <span>🌾 Smart Farming</span>
+          <span>🤖 AI Powered</span>
         </div>
-      </section>
+
+        <div className="testimonial-author">
+          <div className="author-avatar">
+            {testimonial.name[0]}
+          </div>
+
+          <div className="author-info">
+            <span className="author-name">
+              <span className="notranslate">
+                {testimonial.name}
+              </span>
+            </span>
+
+            <span className="author-location">
+              📍 {testimonial.location}
+            </span>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+                
 
       <section className="cta-section">
         <h2>Ready to Transform Your Farm?</h2>
